@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang='ru'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" href="fonts/Forzan-Light.ttf" rel="stylesheet">
+        <title>Вселенная звездных войн</title>
+    </head>
+    <body>
+
+        <!-- Заголовок -->
+        <header>
+            <h1>Вселенная звездных войн</h1>
+        </header>
+
+        <nav id="sections">
+            <ul>
+                <li><a class="nav-link" onclick="showContainer('main')">Главная</a></li>
+                <li><a class="nav-link" onclick="showContainer('dictionary')">Словарь</a></li>
+                <li><a class="nav-link" onclick="showContainer('gallery')">Галерея</a></li>
+                <li><a class="nav-link" onclick="showContainer('test')">Тест</a></li>
+                <li><a class="nav-link" onclick="showContainer('userInfo')">Личный кабинет</a></li>
+            </ul>
+        </nav>
+
+        <!-- Блок со вкладками -->
+
+        <div>
+
+            <!-- Главная -->
+            <div class="container active" id="main">
+                <h1>О вселенной звездных войн</h1>
+                <h3>Во вселенной "Звёздных Войн" разворачивается эпическая сага о борьбе между добром и злом, где светлые и тёмные силы сражаются за контроль над галактикой. Основные персонажи, такие как Люк Скайуокер, принцесса Лея, Дарт Вейдер и Йода, становятся символами различных идеалов и конфликтов. 
+
+                    Сюжеты охватывают множество тем, включая дружбу, предательство, искупление и поиски силы. Галактика населена разнообразными расами и существами, от джедаев и ситхов до дроидов и инопланетян, что придаёт ей уникальную атмосферу. 
+                    
+                    Ключевыми элементами являются световые мечи, космические сражения и использование Силы — мистической энергии, которая связывает всех живых существ. "Звёздные Войны" не только развлекают, но и поднимают важные вопросы о морали, власти и судьбе, что делает их актуальными для зрителей всех возрастов.</р>
+            </div>
+
+            <!-- Словарь -->
+            <div class="container" id="dictionary">
+                <h1>Словарь</h1>
+                <input type="text" id="searchInput" placeholder="Поиск в словаре..." oninput="filterTerms()">
+                <div class="term-list" id="termList"></div>
+                <h3>Описание:</h3>
+                <p id="termDescription"></p>
+            </div>
+
+            <!-- Галерея -->
+            <div class="container" id="gallery">
+                <h1>Галерея</h1>
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide" style="background-image: url('./img/1.jpg');"></div>
+                        <div class="slide" style="background-image: url('./img/2.jpg');"></div>
+                        <div class="slide" style="background-image: url('./img/3.jpg');"></div>
+                        <div class="slide" style="background-image: url('./img/4.jpg');"></div>
+                        <div class="slide" style="background-image: url('./img/5.jpg');"></div>
+                    </div> 
+                    <div class="slider-controls">
+                        <button class="prev"><</button>
+                        <button class="next">></button>
+                    </div>
+                    <div class="slide-number">
+                        <span id="current">1</span> слайд из <span id="total">5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Тест -->
+            <div class="container" id="test">
+                <h1>Тест</h1>
+                <div id="quiz-container">
+                    <!-- Вопрос 1 -->
+                    <div class="quiz-question">
+                        <label>1. Кто был один из самых известных джедаев в истории?</label>
+                        <div class="quiz-options">
+                            <input type="radio" name="q1" value="Хан Соло">Хан Соло<br>
+                            <input type="radio" name="q1" value="Люк Скайуокер">Люк Скайуокер<br>
+                            <input type="radio" name="q1" value="Обиван Кеноби">Обиван Кеноби
+                        </div>
+                    </div>
+                    <!-- Вопрос 2 -->
+                    <div class="quiz-question">
+                        <label>2. Как называется планета, на которой поднимается Люк Скайуокер?</label>
+                        <div class="quiz-options">
+                            <input type="radio" name="q2" value="Эндор">Эндор<br>
+                            <input type="radio" name="q2" value="Татуин">Татуин<br>
+                            <input type="radio" name="q2" value="Дарутан">Дарутан
+                        </div>
+                    </div>
+                    <!-- Вопрос 3 -->
+                    <div class="quiz-question">
+                        <label>3. Что такое Республика в контексте "Звёздных Войн"?</label>
+                        <div class="quiz-options">
+                            <input type="radio" name="q3" value="Военное объединение">Военное объединение<br>
+                            <input type="radio" name="q3" value="Политическая структура">Политическая структура<br>
+                            <input type="radio" name="q3" value="Мафия">Мафия
+                        </div>
+                    </div>
+                    <!-- Вопрос 4 -->
+                    <div class="quiz-question">
+                        <label>4. Как называется группа, пытающаяся свергнуть империю?</label>
+                        <div class="quiz-options">
+                            <input type="radio" name="q4" value="Штаб повстанцев">Штаб повстанцев<br>
+                            <input type="radio" name="q4" value="Альянс повстанцев">Альянс повстанцев<br>
+                            <input type="radio" name="q4" value="Галактический союз">Галактический союз
+                        </div>
+                    </div>
+                    <!-- Вопрос 5 -->
+                    <div class="quiz-question">
+                        <label>5. Робот, выполняющий различные функции, от боевых до обслуживающих, часто обладающий уникальной личностью - это</label>
+                        <input type="text" id="q5" placeholder="Ваш ответ..." required>
+                    </div>
+                    <!-- Вопрос 6 -->
+                    <div class="quiz-question">
+                        <label>6. Законодательный орган Галактической Республики, представляющий интересы различных планет и систем - это</label>
+                        <input type="text" id="q6" placeholder="Ваш ответ..." required>
+                    </div>
+                </div>
+                <div class="navig">
+                    <button id="proverka">Проверить</button>
+                </div>
+            </div>
+            <!-- Результат -->
+            
+
+            <!-- Личный кабинет -->
+            <div class="container" id="userInfo">
+                <h1>Личный кабинет</h1>
+                <p>Логин: <span id="pr-login">Неизвестно</span></p>
+                <p>Дата рождения: <span id="pr-birthday">Неизвестно</span></p>
+                <p>Пол: <span id="pr-gender">Неизвестно</span></p>
+                <p>Результат теста: <span id="pr-test"></span></p>
+                <button id="exit" onclick="exit()">Выйти</button>
+            </div>
+
+            <!-- Регистрация -->
+            <div class="registration" id="login">
+                <h1>Регистрация</h1>
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" placeholder="Введите имя..." required oninput="validateInput(this)">
+                </div>
+                <div class="form-group">
+                    <label for="date">Дата рождения:</label>
+                    <input type="date" id="date" min="1950-01-01" max="2024-12-28" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Пол:</label>
+                    <select id="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                </div>
+                <button id="login" onclick="register()">Войти</button><br><br>
+                <div class="error" id="reg-error"></div>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <secrion class="footer_wrap">
+            <footer class="footer wrap">
+                <h2>Контакты:</h2>
+                <p>Телефон: +7(905)250-16-96</p>
+                <a href="#">Вконтакте</a>, <a href="#">Почта</a>
+                <h4>&copy; 2024 Вселенной Звездных Войн</h4>
+            </footer>
+        </secrion>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
